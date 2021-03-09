@@ -15,7 +15,7 @@ As requisições são enviadas para " api/obj.php "
  // Jul / 2019
 
 
- $obj = "CODIGO DE RASTREIO";
+ $obj = "CODIGO DE RASTREIO;CODIGO DE RASTREIO";
  $url = "http://localhost/rastreio/api/obj.php?obj={$obj}";
  $rastreio = json_decode(file_get_contents($url));
 

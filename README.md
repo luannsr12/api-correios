@@ -42,3 +42,11 @@ As requisições são enviadas para " api/obj.php "
 }
 
 ```
+
+## Contribuidores
+
+| [<img alt="murilohns" src="https://github.com/germano-rs.png?size=115" width="115"><br><sub>@germano-rs</sub>](https://github.com/germano-rs) |
+
+## Autor
+
+| [<img src="https://github.com/luannsr12.png?size=115" width=115><br><sub>@luannsr12</sub>](https://github.com/luannsr12) |

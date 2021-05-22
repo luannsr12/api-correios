@@ -14,14 +14,18 @@ As requisições são enviadas para " api/obj.php "
  // @author : Luan Alves
  // Jul / 2019
 
+ // Api Url
+ $apiUrl = "http://localhost/rastreio/api";
 
- $obj = "CODIGO DE RASTREIO;CODIGO DE RASTREIO";
- $url = "http://localhost/rastreio/api/obj.php?obj={$obj}";
- $rastreio = json_decode(file_get_contents($url));
 
- echo '<pre>';
- var_dump($rastreio);
+ // Rastreio objeto - Para mais código adicionar ;
+ $obj      = "CODIGO DE RASTREIO";
+ $rastreio = file_get_contents("{$apiUrl}/obj.php?obj={$obj}");  // Json return
 
+ // Nome do envio conforme a sigla do código
+ $json          = json_decode(file_get_contents("{$apiUrl}/siglas_rastreio.json"));
+ $sigla         = substr($obj,0,2);
+ $tipoEncomenda = $json->$sigla->name; // SEDEX
 
 
 
@@ -40,6 +44,17 @@ As requisições são enviadas para " api/obj.php "
      "change":"há 2 dias"
       }
 }
+
+```
+
+### JSON Siglas rastreio
+```json
+
+ { 
+   "PI": {
+      "name": "ENCOMENDA PAC"
+   }
+ }
 
 ```
 

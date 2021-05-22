@@ -1,0 +1,794 @@
+{
+   "AL": {
+      "name": "AGENTES DE LEITURA"
+   },
+   "AR": {
+      "name": "AVISO DE RECEBIMENTO"
+   },
+   "AS": {
+      "name": "ENCOMENDA PAC – ACAO SOCIAL"
+   },
+   "BE": {
+      "name": "REMESSA ECONÔMICA S/ AR DIGITAL"
+   },
+   "BF": {
+      "name": "REMESSA EXPRESSA S/ AR DIGITAL"
+   },
+   "BG": {
+      "name": "ETIQUETA LOG REM ECON C/AR BG"
+   },
+   "BH": {
+      "name": "MENSAGEM FÍSICO-DIGITAL"
+   },
+   "BI": {
+      "name": "ETIQUETA LÓG REGIST URG"
+   },
+   "CA": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CB": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CC": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CD": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CE": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CF": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CG": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CH": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CI": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CJ": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CK": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CL": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CM": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CN": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CO": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CP": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CQ": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CR": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CS": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CT": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CU": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CV": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CW": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CX": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CY": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "CZ": {
+      "name": "OBJETO INTERNACIONAL COLIS"
+   },
+   "DA": {
+      "name": "ENCOMENDA SEDEX C/ AR DIGITAL"
+   },
+   "DB": {
+      "name": "REMESSA EXPRESSA C/ AR DIGITAL-BRADESCO"
+   },
+   "DC": {
+      "name": "REMESSA EXPRESSA (ORGAO TRANSITO)"
+   },
+   "DD": {
+      "name": "DEVOLUÇÃO DE DOCUMENTOS"
+   },
+   "DE": {
+      "name": "REMESSA EXPRESSA C/ AR DIGITAL"
+   },
+   "DF": {
+      "name": "ENCOMENDA SEDEX (ETIQ LOGICA)"
+   },
+   "DG": {
+      "name": "ENCOMENDA SEDEX (ETIQ LOGICA)"
+   },
+   "DI": {
+      "name": "REM EXPRES COM AR DIGITAL ITAU"
+   },
+   "DJ": {
+      "name": "ENCOMENDA SEDEX"
+   },
+   "DK": {
+      "name": "SEDEX EXTRA GRANDE"
+   },
+   "DL": {
+      "name": "SEDEX LÓGICO"
+   },
+   "DM": {
+      "name": "ENCOMENDA SEDEX"
+   },
+   "DN": {
+      "name": "ENCOMENDA SEDEX"
+   },
+   "DO": {
+      "name": "REM EXPRES COM AR DIGITAL ITAU UNIBANCO"
+   },
+   "DP": {
+      "name": "SEDEX PAGAMENTO ENTREGA"
+   },
+   "DQ": {
+      "name": "REM EXPRES COM AR DIGITAL BRADESCO"
+   },
+   "DR": {
+      "name": "REM EXPRES COM AR DIGITAL SANTANDER"
+   },
+   "DS": {
+      "name": "REM EXPRES COM AR DIGITAL SANTANDER"
+   },
+   "DT": {
+      "name": "REMESSA ECON.SEG.TRANSITO C/AR DIGITAL"
+   },
+   "DU": {
+      "name": "ENCOMENDA SEDEX"
+   },
+   "DV": {
+      "name": "SEDEX COM AR DIGITAL"
+   },
+   "DW": {
+      "name": "ENCOMENDA SEDEX (ETIQ LÓGICA)"
+   },
+   "DX": {
+      "name": "SEDEX 10 LÓGICO"
+   },
+   "DY": {
+      "name": "ENCOMENDA SEDEX (ETIQ FÍSICA)"
+   },
+   "DZ": {
+      "name": "ENCOMENDA SEDEX (ETIQ LOGICA)"
+   },
+   "EA": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EB": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EC": {
+      "name": "ENCOMENDA PAC"
+   },
+   "ED": {
+      "name": "OBJETO INTERNACIONAL PACKET EXPRESS"
+   },
+   "EE": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EF": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EG": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EH": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EI": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EJ": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EK": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EL": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EM": {
+      "name": "SEDEX MUNDI"
+   },
+   "EN": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EO": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EP": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EQ": {
+      "name": "ENCOMENDA SERVIÇO NÃO EXPRESSA ECT"
+   },
+   "ER": {
+      "name": "REGISTRADO"
+   },
+   "ES": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "ET": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EU": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EV": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EW": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EX": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EY": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "EZ": {
+      "name": "OBJETO INTERNACIONAL EMS"
+   },
+   "FA": {
+      "name": "FAC REGISTRADO"
+   },
+   "FB": {
+      "name": "FAC REGISTRADO"
+   },
+   "FC": {
+      "name": "FAC REGISTRADO (5 DIAS)"
+   },
+   "FD": {
+      "name": "FAC REGISTRADO (10 DIAS)"
+   },
+   "FE": {
+      "name": "ENCOMENDA FNDE"
+   },
+   "FF": {
+      "name": "REGISTRADO DETRAN"
+   },
+   "FH": {
+      "name": "FAC REGISTRADO C/ AR DIGITAL"
+   },
+   "FJ": {
+      "name": "REMESSA ECONÔMICA C/ AR DIGITAL"
+   },
+   "FM": {
+      "name": "FAC REGISTRADO (MONITORADO)"
+   },
+   "FR": {
+      "name": "FAC REGISTRADO"
+   },
+   "IA": {
+      "name": "INTEGRADA AVULSA"
+   },
+   "IC": {
+      "name": "INTEGRADA A COBRAR"
+   },
+   "ID": {
+      "name": "INTEGRADA DEVOLUCAO DE DOCUMENTO"
+   },
+   "IE": {
+      "name": "INTEGRADA ESPECIAL"
+   },
+   "IF": {
+      "name": "CPF"
+   },
+   "II": {
+      "name": "INTEGRADA INTERNO"
+   },
+   "IK": {
+      "name": "INTEGRADA COM COLETA SIMULTANEA"
+   },
+   "IM": {
+      "name": "INTEGRADA MEDICAMENTOS"
+   },
+   "IN": {
+      "name": "OBJ DE CORRESP E EMS REC EXTERIOR"
+   },
+   "IP": {
+      "name": "INTEGRADA PROGRAMADA"
+   },
+   "IR": {
+      "name": "IMPRESSO REGISTRADO"
+   },
+   "IS": {
+      "name": "INTEGRADA STANDARD"
+   },
+   "IT": {
+      "name": "INTEGRADA TERMOLÁBIL"
+   },
+   "IU": {
+      "name": "INTEGRADA URGENTE"
+   },
+   "IX": {
+      "name": "EDEI ENCOMENDA EXPRESSA"
+   },
+   "JA": {
+      "name": "REMESSA ECONOMICA C/AR DIGITAL"
+   },
+   "JB": {
+      "name": "REMESSA ECONOMICA C/AR DIGITAL"
+   },
+   "JC": {
+      "name": "REMESSA ECONOMICA C/AR DIGITAL"
+   },
+   "JD": {
+      "name": "REMESSA ECONOMICA S/AR DIGITAL"
+   },
+   "JE": {
+      "name": "REMESSA ECONOMICA C/AR DIGITAL"
+   },
+   "JF": {
+      "name": "REMESSA ECONOMICA C/AR DIGITAL"
+   },
+   "JG": {
+      "name": "REGISTRADO PRIORITÁRIO"
+   },
+   "JH": {
+      "name": "REGISTRADO PRIORITÁRIO"
+   },
+   "JI": {
+      "name": "REMESSA ECONOMICA S/AR DIGITAL"
+   },
+   "JJ": {
+      "name": "REGISTRADO JUSTIÇA"
+   },
+   "JK": {
+      "name": "REMESSA ECONÔMICA S/AR DIGITAL"
+   },
+   "JL": {
+      "name": "REGISTRADO LÓGICO"
+   },
+   "JM": {
+      "name": "MALA DIRETA POSTAL ESPECIAL"
+   },
+   "JN": {
+      "name": "MALA DIRETA POSTAL ESPECIAL"
+   },
+   "JO": {
+      "name": "REGISTRADO PRIORITÁRIO"
+   },
+   "JP": {
+      "name": "OBJETO RECEITA FEDERAL (EXCLUSIVO)"
+   },
+   "JQ": {
+      "name": "REMESSA ECONOMICA C/AR DIGITAL"
+   },
+   "JR": {
+      "name": "REGISTRADO PRIORITÁRIO"
+   },
+   "JS": {
+      "name": "REGISTRADO LÓGICO"
+   },
+   "JT": {
+      "name": "REGISTRADO URGENTE"
+   },
+   "JU": {
+      "name": "ETIQUETA FÍS REGIST URG"
+   },
+   "JV": {
+      "name": "REMESSA ECONÔMICA C/AR DIGITAL"
+   },
+   "JW": {
+      "name": "CARTA COMERCIAL A FATURAR (5 DIAS)"
+   },
+   "JX": {
+      "name": "CARTA COMERCIAL A FATURAR (10 DIAS)"
+   },
+   "JY": {
+      "name": "REMESSA ECONOMICA (5 DIAS)"
+   },
+   "JZ": {
+      "name": "REMESSA ECONOMICA (10 DIAS)"
+   },
+   "LA": {
+      "name": "LOGÍSTICA REVERSA SIMULTÂNEA SEDEX"
+   },
+   "LB": {
+      "name": "LOGÍSTICA REVERSA SIMULTÂNEA SEDEX"
+   },
+   "LC": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LD": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LE": {
+      "name": "LOGÍSTICA REVERSA ECONOMICA"
+   },
+   "LF": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LG": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LH": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LI": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LJ": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LK": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LL": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LM": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LN": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LP": {
+      "name": "LOGÍSTICA REVERSA SIMULTÂNEA PAC"
+   },
+   "LQ": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LS": {
+      "name": "LOGISTICA REVERSA SEDEX"
+   },
+   "LV": {
+      "name": "LOGISTICA REVERSA EXPRESSA"
+   },
+   "LW": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LX": {
+      "name": "OBJETO INTERNACIONAL PACKET ECONOMIC"
+   },
+   "LY": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "LZ": {
+      "name": "OBJETO INTERNACIONAL PRIME"
+   },
+   "MA": {
+      "name": "TELEGRAMA – SERVICOS ADICIONAIS"
+   },
+   "MB": {
+      "name": "TELEGRAMA DE BALCAO"
+   },
+   "MC": {
+      "name": "TELEGRAMA FONADO"
+   },
+   "MD": {
+      "name": "MAQUINA DE FRANQUEAR (LOGICA)"
+   },
+   "ME": {
+      "name": "TELEGRAMA"
+   },
+   "MF": {
+      "name": "TELEGRAMA FONADO"
+   },
+   "MH": {
+      "name": "CARTA VIA INTERNET"
+   },
+   "MK": {
+      "name": "TELEGRAMA CORPORATIVO"
+   },
+   "MM": {
+      "name": "TELEGRAMA GRANDES CLIENTES"
+   },
+   "MP": {
+      "name": "TELEGRAMA PRÉ-PAGO"
+   },
+   "MS": {
+      "name": "ENCOMENDA SAUDE"
+   },
+   "MT": {
+      "name": "TELEGRAMA VIA TELEMAIL"
+   },
+   "MY": {
+      "name": "TELEGRAMA INTERNACIONAL ENTRANTE"
+   },
+   "MZ": {
+      "name": "TELEGRAMA VIA CORREIOS ON LINE"
+   },
+   "NE": {
+      "name": "TELE SENA RESGATADA"
+   },
+   "NX": {
+      "name": "EDEI ENCOMENDA NAO URGENTE"
+   },
+   "OA": {
+      "name": "ENCOMENDA SEDEX (ETIQ LOGICA)"
+   },
+   "OB": {
+      "name": "ENCOMENDA SEDEX (ETIQ LOGICA)"
+   },
+   "OC": {
+      "name": "ENCOMENDA SEDEX (ETIQ LOGICA)"
+   },
+   "OD": {
+      "name": "ENCOMENDA SEDEX (ETIQ FÍSICA)"
+   },
+   "OG": {
+      "name": "ETIQUETA LÓGICA SEDEX"
+   },
+   "PA": {
+      "name": "PASSAPORTE"
+   },
+   "PB": {
+      "name": "ENCOMENDA PAC – NÃO URGENTE"
+   },
+   "PC": {
+      "name": "ENCOMENDA PAC A COBRAR"
+   },
+   "PD": {
+      "name": "ENCOMENDA PAC"
+   },
+   "PE": {
+      "name": "ENCOMENDA PAC (ETIQUETA FISICA)"
+   },
+   "PF": {
+      "name": "PASSAPORTE"
+   },
+   "PG": {
+      "name": "ENCOMENDA PAC (ETIQUETA FISICA)"
+   },
+   "PH": {
+      "name": "ENCOMENDA PAC (ETIQUETA LOGICA)"
+   },
+   "PI": {
+      "name": "ENCOMENDA PAC"
+   },
+   "PJ": {
+      "name": "ENCOMENDA PAC"
+   },
+   "PK": {
+      "name": "PAC EXTRA GRANDE"
+   },
+   "PL": {
+      "name": "ENCOMENDA PAC"
+   },
+   "PM": {
+      "name": "ENCOMENDA PAC (ETIQ FÍSICA)"
+   },
+   "PN": {
+      "name": "ENCOMENDA PAC (ETIQ LOGICA)"
+   },
+   "PO": {
+      "name": "ENCOMENDA PAC (ETIQ LOGICA)"
+   },
+   "PP": {
+      "name": "ETIQUETA LÓGICA PAC"
+   },
+   "PR": {
+      "name": "REEMBOLSO POSTAL – CLIENTE AVULSO"
+   },
+   "PS": {
+      "name": "ETIQUETA LÓGICA PAC"
+   },
+   "QE": {
+      "name": "OBJETO EM TRÂNSITO"
+   },
+   "RA": {
+      "name": "REGISTRADO PRIORITÁRIO"
+   },
+   "RB": {
+      "name": "CARTA REGISTRADA"
+   },
+   "RC": {
+      "name": "CARTA REGISTRADA COM VALOR DECLARADO"
+   },
+   "RD": {
+      "name": "REMESSA ECONOMICA DETRAN"
+   },
+   "RE": {
+      "name": "MALA DIRETA POSTAL ESPECIAL"
+   },
+   "RF": {
+      "name": "OBJETO DA RECEITA FEDERAL"
+   },
+   "RG": {
+      "name": "REGISTRADO DO SISTEMA SARA"
+   },
+   "RH": {
+      "name": "REGISTRADO COM AR DIGITAL"
+   },
+   "RI": {
+      "name": "REGISTRADO PRIORITÁRIO INTERNACIONAL"
+   },
+   "RJ": {
+      "name": "REGISTRADO AGÊNCIA"
+   },
+   "RK": {
+      "name": "REGISTRADO AGÊNCIA"
+   },
+   "RL": {
+      "name": "REGISTRADO LÓGICO"
+   },
+   "RM": {
+      "name": "REGISTRADO AGÊNCIA"
+   },
+   "RN": {
+      "name": "REGISTRADO AGÊNCIA"
+   },
+   "RO": {
+      "name": "REGISTRADO AGÊNCIA"
+   },
+   "RP": {
+      "name": "REEMBOLSO POSTAL – CLIENTE INSCRITO"
+   },
+   "RQ": {
+      "name": "REGISTRADO AGÊNCIA"
+   },
+   "RR": {
+      "name": "REGISTRADO INTERNACIONAL"
+   },
+   "RS": {
+      "name": "REM ECON ORG TRANSITO COM OU SEM AR"
+   },
+   "RT": {
+      "name": "REM ECON TALAO/CARTAO SEM AR DIGITA"
+   },
+   "RU": {
+      "name": "REGISTRADO SERVIÇO ECT"
+   },
+   "RV": {
+      "name": "REM ECON CRLV/CRV/CNH COM AR DIGITAL"
+   },
+   "RW": {
+      "name": "REGISTRADO INTERNACIONAL"
+   },
+   "RX": {
+      "name": "REGISTRADO INTERNACIONAL"
+   },
+   "RY": {
+      "name": "REM ECON TALAO/CARTAO COM AR DIGITAL"
+   },
+   "RZ": {
+      "name": "REGISTRADO"
+   },
+   "SA": {
+      "name": "ETIQUETA SEDEX AGÊNCIA"
+   },
+   "SB": {
+      "name": "SEDEX 10"
+   },
+   "SC": {
+      "name": "SEDEX A COBRAR"
+   },
+   "SD": {
+      "name": "REMESSA EXPRESSA DETRAN"
+   },
+   "SE": {
+      "name": "ENCOMENDA SEDEX"
+   },
+   "SF": {
+      "name": "SEDEX AGENCIA"
+   },
+   "SG": {
+      "name": "SEDEX DO SISTEMA SARA"
+   },
+   "SH": {
+      "name": "SEDEX COM AR DIGITAL"
+   },
+   "SI": {
+      "name": "SEDEX AGÊNCIA"
+   },
+   "SJ": {
+      "name": "SEDEX HOJE"
+   },
+   "SK": {
+      "name": "SEDEX AGÊNCIA"
+   },
+   "SL": {
+      "name": "SEDEX LÓGICO"
+   },
+   "SM": {
+      "name": "SEDEX 12"
+   },
+   "SN": {
+      "name": "SEDEX AGÊNCIA"
+   },
+   "SO": {
+      "name": "SEDEX AGÊNCIA"
+   },
+   "SP": {
+      "name": "SEDEX PRÉ-FRANQUEADO"
+   },
+   "SQ": {
+      "name": "SEDEX"
+   },
+   "SR": {
+      "name": "SEDEX"
+   },
+   "SS": {
+      "name": "SEDEX FÍSICO"
+   },
+   "ST": {
+      "name": "REM EXPRES TALAO/CARTAO SEM AR DIGITAL"
+   },
+   "SU": {
+      "name": "ENCOMENDA SERVIÇO EXPRESSA ECT"
+   },
+   "SV": {
+      "name": "REM EXPRES CRLV/CRV/CNH COM AR DIGITAL"
+   },
+   "SW": {
+      "name": "ENCOMENDA SEDEX"
+   },
+   "SX": {
+      "name": "SEDEX 10"
+   },
+   "SY": {
+      "name": "REM EXPRES TALAO/CARTAO COM AR DIGITAL"
+   },
+   "SZ": {
+      "name": "SEDEX AGÊNCIA"
+   },
+   "TC": {
+      "name": "TESTE (OBJETO PARA TREINAMENTO)"
+   },
+   "TE": {
+      "name": "TESTE (OBJETO PARA TREINAMENTO)"
+   },
+   "TR": {
+      "name": "OBJETO TREINAMENTO – NÃO GERA PRÉ-ALERTA"
+   },
+   "TS": {
+      "name": "TESTE (OBJETO PARA TREINAMENTO)"
+   },
+   "VA": {
+      "name": "OBJETO INTERNACIONAL COM VALOR DECLARADO"
+   },
+   "VC": {
+      "name": "OBJETO INTERNACIONAL COM VALOR DECLARADO"
+   },
+   "VD": {
+      "name": "OBJETO INTERNACIONAL COM VALOR DECLARADO"
+   },
+   "VE": {
+      "name": "OBJETO INTERNACIONAL COM VALOR DECLARADO"
+   },
+   "VF": {
+      "name": "OBJETO INTERNACIONAL COM VALOR DECLARADO"
+   },
+   "VV": {
+      "name": "OBJETO INTERNACIONAL COM VALOR DECLARADO"
+   },
+   "XA": {
+      "name": "AVISO CHEGADA OBJETO INT TRIBUTADO"
+   },
+   "XM": {
+      "name": "SEDEX MUNDI"
+   },
+   "XR": {
+      "name": "OBJETO INTERNACIONAL (PPS TRIBUTADO)"
+   },
+   "XX": {
+      "name": "OBJETO INTERNACIONAL (PPS TRIBUTADO)"
+   }
+}

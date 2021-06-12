@@ -2,10 +2,16 @@
 
 class ApiCorreios
 {
+    /**
+     * Atributes
+     */
     private array  $services;
     private String $wsCorreios;
     private String $trackCorreios;
 
+    /**
+     * Construct function
+     */
     public function __construct()
     {
         $this->services = array(
@@ -20,11 +26,30 @@ class ApiCorreios
         $this->trackCorreios = 'https://www2.correios.com.br/sistemas/rastreamento/resultado_semcontent.cfm';
     }
 
+
+    /**
+     * getServices function
+     * 
+     * Retorna os serviços oferecidos pelos Correios.
+     *
+     * @return String
+     */
     public function getServices(): String
     {
         return json_encode($this->services, JSON_UNESCAPED_UNICODE);
     }
 
+    /**
+     * getFrete function
+     * 
+     * Calcula o frete dos Correios com base no tipo de serviço, origem e destino, e as dimensões do(s) itens.
+     *
+     * @param String $service
+     * @param String $sender
+     * @param String $recipient
+     * @param array $product
+     * @return String
+     */
     public function getFrete(String $service, String $sender, String $recipient, array $product): String
     {
         $sender = str_replace('-', '', $sender);
@@ -54,6 +79,14 @@ class ApiCorreios
         return json_encode($xml, JSON_UNESCAPED_UNICODE);
     }
 
+    /**
+     * tracking function
+     * 
+     * Rastreia um objeto enviado pelos Correios. Esta função recebe um ou mais códigos de rastreio desde que estejam separados por ";" (ponto e vírgula). 
+     *
+     * @param String $trackCode
+     * @return String
+     */
     public function tracking(String $trackCode): String
     {
         //aqui eu "quebro" a string para criar um array de encomendas, permitindo o recebimento de mais de uma encomenda
@@ -133,6 +166,14 @@ class ApiCorreios
         return json_encode($jsonObcject, JSON_UNESCAPED_UNICODE);
     }
 
+    /**
+     * getSiglas function
+     * 
+     * Retorna a descrição das Siglas utilizadas nos códigos de rastreio. Esta função retorna todas as siglas ou uma específica
+     *
+     * @param String $sigla
+     * @return String
+     */
     public function getSiglas(String $sigla = ''): String
     {
         $dados = file_get_contents(__DIR__.'/siglas_rastreio.json');

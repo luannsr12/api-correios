@@ -18,8 +18,7 @@ header('Content-Type: application/json');
 // URL base
 $apiUrl = DIRPAGE.'api';
 
-
-
+// Chamada da Classe
 $api = new ApiCorreios();
 
 // Recupera os serviços oferecidos pelos Correios

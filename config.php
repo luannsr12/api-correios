@@ -11,7 +11,7 @@
  */
 
 // Caso a plicação fique num diretório diferenta da rais do servidor
-$PastaInterna="projeto/correios-rastreio/";
+$PastaInterna="projeto/correios_rastreio/";
 
 // Url da aplicação. Ex: http://localhost/projeto/correios-rastreio/
 define('DIRPAGE',"http://{$_SERVER['HTTP_HOST']}/{$PastaInterna}");

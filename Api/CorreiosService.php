@@ -1,6 +1,6 @@
 <?php
 
-class ApiCorreios
+class CorreiosService
 {
     /**
      * Atributes
@@ -32,11 +32,11 @@ class ApiCorreios
      * 
      * Retorna os serviços oferecidos pelos Correios.
      *
-     * @return String
+     * @return Array
      */
-    public function getServices(): String
+    public function getServices(): Array
     {
-        return json_encode($this->services, JSON_UNESCAPED_UNICODE);
+        return $this->services;
     }
 
     /**
@@ -44,18 +44,16 @@ class ApiCorreios
      * 
      * Calcula o frete dos Correios com base no tipo de serviço, origem e destino, e as dimensões do(s) itens.
      *
-     * @param String $service
-     * @param String $sender
-     * @param String $recipient
-     * @param array $product
-     * @return String
+     * @return Array
      */
-    public function getFrete(String $service, String $sender, String $recipient, array $product): String
+    public function getFrete(): Array
     {
-        $sender = str_replace('-', '', $sender);
-        $recipient = str_replace('-', '', $recipient);
+        $value = json_decode(file_get_contents('php://input'), TRUE);
 
-        $url = $this->wsCorreios . 'CalcPrecoPrazo.aspx?nCdEmpresa=&sDsSenha=&sCepOrigem=' . $sender . '&sCepDestino=' . $recipient . '&nVlPeso=' . $product['peso'] . '&nCdFormato=' . $product['tipo'] . '&nVlComprimento=' . $product['comprimento'] . '&nVlAltura=' . $product['altura'] . '&nVlLargura=' . $product['largura'] . '&sCdMaoPropria=' . $product['maoPropria'] . '&nVlValorDeclarado=' . $product['valorDeclarado'] . '&sCdAvisoRecebimento=' . $product['avisoRecebimento'] . '&nCdServico=' . $service . '&nVlDiametro=' . $product['diametro'] . '&StrRetorno=xml';
+        $sender = str_replace('-', '', $value['origem']);
+        $recipient = str_replace('-', '', $value['destinatario']);
+
+        $url = $this->wsCorreios . 'CalcPrecoPrazo.aspx?nCdEmpresa=&sDsSenha=&sCepOrigem=' . $sender . '&sCepDestino=' . $recipient . '&nVlPeso=' . $value['peso'] . '&nCdFormato=' . $value['tipo'] . '&nVlComprimento=' . $value['comprimento'] . '&nVlAltura=' . $value['altura'] . '&nVlLargura=' . $value['largura'] . '&sCdMaoPropria=' . $value['maoPropria'] . '&nVlValorDeclarado=' . $value['valorDeclarado'] . '&sCdAvisoRecebimento=' . $value['avisoRecebimento'] . '&nCdServico=' . $value['servico'] . '&nVlDiametro=' . $value['diametro'] . '&StrRetorno=xml';
 
         $curl = curl_init();
         curl_setopt_array(
@@ -76,7 +74,7 @@ class ApiCorreios
         curl_close($curl);
 
         $xml = simplexml_load_string($response);
-        return json_encode($xml, JSON_UNESCAPED_UNICODE);
+        return json_decode(json_encode($xml, JSON_UNESCAPED_UNICODE), TRUE);
     }
 
     /**
@@ -85,9 +83,9 @@ class ApiCorreios
      * Rastreia um objeto enviado pelos Correios. Esta função recebe um ou mais códigos de rastreio desde que estejam separados por ";" (ponto e vírgula). 
      *
      * @param String $trackCode
-     * @return String
+     * @return Object
      */
-    public function tracking(String $trackCode): String
+    public function tracking(String $trackCode): Object
     {
         //aqui eu "quebro" a string para criar um array de encomendas, permitindo o recebimento de mais de uma encomenda
         //a ser pesquisada
@@ -156,14 +154,14 @@ class ApiCorreios
                 $jsonObcject->erro = true;
                 $jsonObcject->msg = "Objeto não encontrado";
                 $jsonObcject->obj = $obj[$i];
-                return json_encode($jsonObcject, JSON_UNESCAPED_UNICODE);
+                return $jsonObcject;
             }
             //cria um objeto identificando o código da encomenda e as informações extraídas armazenadas no array $novo_array
             $arrayCompleto[$obj[$i]] = (object)$novo_array;
         }
 
         $jsonObcject = (object)$arrayCompleto;
-        return json_encode($jsonObcject, JSON_UNESCAPED_UNICODE);
+        return $jsonObcject;
     }
 
     /**
@@ -172,14 +170,14 @@ class ApiCorreios
      * Retorna a descrição das Siglas utilizadas nos códigos de rastreio. Esta função retorna todas as siglas ou uma específica
      *
      * @param String $sigla
-     * @return String
+     * @return Array
      */
-    public function getSiglas(String $sigla = ''): String
+    public function getSiglas(String $sigla = ''): Array
     {
         $dados = file_get_contents(__DIR__.'/siglas_rastreio.json');
 
         $dados = json_decode($dados, TRUE);
 
-        return !empty($sigla) ? json_encode(array($sigla => $dados[$sigla]), JSON_UNESCAPED_UNICODE) : json_encode($dados, JSON_UNESCAPED_UNICODE);
+        return !empty($sigla) ? array($sigla => $dados[$sigla]) : $dados;
     }
 }

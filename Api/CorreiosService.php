@@ -48,13 +48,17 @@ class CorreiosService
      */
     public function getFrete(): Array
     {
+        // Recupera os dados JSON no corpo da requisição
         $value = json_decode(file_get_contents('php://input'), TRUE);
 
+        // Trata os CEPs retirando o traço caso haja
         $sender = str_replace('-', '', $value['origem']);
         $recipient = str_replace('-', '', $value['destinatario']);
 
+        // Cria a URL
         $url = $this->wsCorreios . 'CalcPrecoPrazo.aspx?nCdEmpresa=&sDsSenha=&sCepOrigem=' . $sender . '&sCepDestino=' . $recipient . '&nVlPeso=' . $value['peso'] . '&nCdFormato=' . $value['tipo'] . '&nVlComprimento=' . $value['comprimento'] . '&nVlAltura=' . $value['altura'] . '&nVlLargura=' . $value['largura'] . '&sCdMaoPropria=' . $value['maoPropria'] . '&nVlValorDeclarado=' . $value['valorDeclarado'] . '&sCdAvisoRecebimento=' . $value['avisoRecebimento'] . '&nCdServico=' . $value['servico'] . '&nVlDiametro=' . $value['diametro'] . '&StrRetorno=xml';
 
+        // Executa a Conexão via Curl
         $curl = curl_init();
         curl_setopt_array(
             $curl,
@@ -73,6 +77,7 @@ class CorreiosService
         $response = curl_exec($curl);
         curl_close($curl);
 
+        // Trata o XML e retorna um array de dados
         $xml = simplexml_load_string($response);
         return json_decode(json_encode($xml, JSON_UNESCAPED_UNICODE), TRUE);
     }

@@ -224,5 +224,5 @@ Nenhum
 
 ## Contribuidores
 
-| [<img src="https://github.com/luannsr12.png?size=115" width=115><br><sub>@luannsr12</sub>](https://github.com/luannsr12) | [<img src="https://github.com/germano-rs.png?size=115" width=115><br><sub>@germano-rs</sub>](https://github.com/germano-rs) |
+| [<img src="https://github.com/luannsr12.png?size=115" width=115><br><sub>@luannsr12</sub>](https://github.com/luannsr12) | [<img src="https://github.com/germano-rs.png?size=115" width=115><br><sub>@germano-rs</sub>](https://github.com/germano-rs)
 | [<img src="https://github.com/pauloalmeidasilva.png?size=115" width=115><br><sub>@pauloalmeidasilva</sub>](https://github.com/pauloalmeidasilva) | :---: |

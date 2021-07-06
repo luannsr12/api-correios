@@ -1,26 +1,40 @@
 <?php
 
- // Para buscar o status do objeto , basta enviar uma requisição
- // para o arquivo " obj.php " dentro de " api " .
- // O arquivo " obj.php " buscara o status do objeto no próprio site dos correios
-
- // PHP >= 5.6
- // @author : Luan Alves
- // Jul / 2019
-
- // Api Url
- $apiUrl = "http://localhost/rastreio/api";
+/**
+ * Chamada dos arquivos necessários para API.
+ */
+require_once 'config.php';
+require_once 'Src/Route.php';
 
 
- // Rastreio objeto - Para mais código adicionar ;
- $obj      = "CODIGO DE RASTREIO";
- $rastreio = file_get_contents("{$apiUrl}/obj.php?obj={$obj}");  // Json return
+// Habilita a apresentação de erros caso seja ambiente de desenvolvimento
+if (ENVIRONMENT == 'development') {
+    ini_set('display_errors', 1);
+    ini_set('display_startup_erros', 1);
+    error_reporting(E_ALL);
+}
 
- // Nome do envio conforme a sigla do código
- $json          = json_decode(file_get_contents("{$apiUrl}/siglas_rastreio.json"));
- $sigla         = substr($obj,0,2);
- $tipoEncomenda = $json->$sigla->name; // SEDEX
+// Cabeçalho da Requisição informando que a resposta será em JSON
+header('Content-Type: application/json');
 
+// Executa a requisição
+try {
+    // Recupera a rota
+    $url = explode("/", rtrim($_GET['url']));
 
+    // Verifica a Rota e retorna a service
+    $service = Route::getService($url[0]);
 
-?>
+    // Chama a Service
+    require 'Api/' . $service . '.php';
+
+    $method = Route::getMethod($service, $url[1]);
+    $args = Route::getArgs($url);
+
+    $response = call_user_func_array(array(new $service, $method), $args);
+
+    echo json_encode(array('status' => 'sucess', 'content' => $response));
+} catch (\Exception $e) {
+    // Tratamento de Exceção caso algum parâmetro não condiza com a API
+    echo json_encode(array('status' => 'error', 'content' => $e->getMessage()), JSON_UNESCAPED_UNICODE);
+}

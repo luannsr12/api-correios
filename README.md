@@ -2,6 +2,9 @@
 
 # API Correios com PHP
 
+[![](https://badges.pufler.dev/updated/luannsr12/correios-rastreio)](https://github.com/luannsr12/correios-rastreio)
+[![](https://badges.pufler.dev/visits/luannsr12/correios-rastreio)](https://github.com/luannsr12/correios-rastreio)
+
 ## Introdução
 
 Esta API aborda os seguintes serviços:

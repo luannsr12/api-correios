@@ -2,7 +2,7 @@
 
 # API Correios com PHP
 
-[![](https://img.shields.io/github/contributors/luannsr12/correios-rastreio.svg?style=flat-square)](https://github.com/luannsr12/correios-rastreio)
+[![](https://img.shields.io/github/contributors/luannsr12/correios-rastreio.svg?style=flat-square)](https://github.com/luannsr12/correios-rastreio/graphs/contributors)
 [![](https://badges.pufler.dev/updated/luannsr12/correios-rastreio)](https://github.com/luannsr12/correios-rastreio)
 [![](https://badges.pufler.dev/visits/luannsr12/correios-rastreio)](https://github.com/luannsr12/correios-rastreio)
 

@@ -29,7 +29,7 @@ Nenhum
 
 **Retorno**
 
-```
+```json
 {
   "status": "sucess",
   "content": {
@@ -69,7 +69,7 @@ OBSERVAÇÔES IMPORTANTES:
 => O valor Declarado é opcional, sendo que caso não deseje declarar, informe 0;
 ```
 
-```
+```json
 {
   "servico": "04510",
   "origem": "12460-000",
@@ -88,7 +88,7 @@ OBSERVAÇÔES IMPORTANTES:
 
 **Retorno**
 
-```
+```json
 {
   "status": "sucess",
   "content": {
@@ -118,7 +118,7 @@ Nenhum
 
 **Retorno**
 
-```
+```json
 {
   "status": "sucess",
   "content": {
@@ -188,7 +188,7 @@ Nenhum
 
 **Retorno**
 
-```
+```json
 {
   "status": "sucess",
   "content": {
@@ -217,7 +217,7 @@ Nenhum
 
 **Retorno**
 
-```
+```json
 {
   "status": "sucess",
   "content": {

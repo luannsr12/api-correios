@@ -23,13 +23,13 @@ class CorreiosService
         );
 
         $this->wsCorreios = 'http://ws.correios.com.br/calculador/';
-        $this->trackCorreios = 'https://www2.correios.com.br/sistemas/rastreamento/resultado_semcontent.cfm';
+        $this->trackCorreios = 'https://www.linkcorreios.com.br';
     }
 
 
     /**
      * getServices function
-     * 
+     *
      * Retorna os serviços oferecidos pelos Correios.
      *
      * @return Array
@@ -41,7 +41,7 @@ class CorreiosService
 
     /**
      * getFrete function
-     * 
+     *
      * Calcula o frete dos Correios com base no tipo de serviço, origem e destino, e as dimensões do(s) itens.
      *
      * @return Array
@@ -56,7 +56,8 @@ class CorreiosService
         $recipient = str_replace('-', '', $value['destinatario']);
 
         // Cria a URL
-        $url = $this->wsCorreios . 'CalcPrecoPrazo.aspx?nCdEmpresa=&sDsSenha=&sCepOrigem=' . $sender . '&sCepDestino=' . $recipient . '&nVlPeso=' . $value['peso'] . '&nCdFormato=' . $value['tipo'] . '&nVlComprimento=' . $value['comprimento'] . '&nVlAltura=' . $value['altura'] . '&nVlLargura=' . $value['largura'] . '&sCdMaoPropria=' . $value['maoPropria'] . '&nVlValorDeclarado=' . $value['valorDeclarado'] . '&sCdAvisoRecebimento=' . $value['avisoRecebimento'] . '&nCdServico=' . $value['servico'] . '&nVlDiametro=' . $value['diametro'] . '&StrRetorno=xml';
+        $url = $this->wsCorreios . 'CalcPrecoPrazo.aspx?nCdEmpresa=&sDsSenha=&sCepOrigem=' . $sender . '&sCepDestino=' . $recipient . '&nVlPeso=' . $value['peso'] . '&nCdFormato=' . $value['tipo'] . '&nVlComprimento=' . $value['comprimento'] . '&nVlAltura=' .
+        $value['altura'] . '&nVlLargura=' . $value['largura'] . '&sCdMaoPropria=' . $value['maoPropria'] . '&nVlValorDeclarado=' . $value['valorDeclarado'] . '&sCdAvisoRecebimento=' . $value['avisoRecebimento'] . '&nCdServico=' . $value['servico'] . '&nVlDiametro=' . $value['diametro'] . '&StrRetorno=xml';
 
         // Executa a Conexão via Curl
         $curl = curl_init();
@@ -82,10 +83,13 @@ class CorreiosService
         return json_decode(json_encode($xml, JSON_UNESCAPED_UNICODE), TRUE);
     }
 
+
+
+
     /**
      * tracking function
-     * 
-     * Rastreia um objeto enviado pelos Correios. Esta função recebe um ou mais códigos de rastreio desde que estejam separados por ";" (ponto e vírgula). 
+     *
+     * Rastreia um objeto enviado pelos Correios. Esta função recebe um ou mais códigos de rastreio desde que estejam separados por ";" (ponto e vírgula).
      *
      * @param String $trackCode
      * @return Object
@@ -96,82 +100,78 @@ class CorreiosService
         //a ser pesquisada
         $obj = explode(";", $trackCode);
 
+        $novo_array = array();
+
         //looping para executar a rotina para cada encomenda enviada
         for ($i = 0; $i < count($obj); $i++) {
 
-            $post = array('Objetos' => $obj[$i]);
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $this->trackCorreios);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
-            $output = curl_exec($ch);
-            curl_close($ch);
+            $output = file_get_contents($this->trackCorreios.'/'.$obj[$i]);
+            $out    = explode("class=\"singlepost\"", $output);
+            $out    = explode("<br>", $out[1]);
+            $out    = explode("<ul class=\"linha_status\"", $out[1]);
 
-            $out = explode("table class=\"listEvent sro\">", $output);
+            $y = 0;
 
-            if (isset($out[1])) {
-                $output = explode("<table class=\"listEvent sro\">", $output);
-                $output = explode("</table>", $output[1]);
-                $output = str_replace("</td>", "", $output[0]);
-                $output = str_replace("</tr>", "", $output);
-                $output = str_replace("<strong>", "", $output);
-                $output = str_replace("</strong>", "", $output);
-                $output = str_replace("<tbody>", "", $output);
-                $output = str_replace("</tbody>", "", $output);
-                $output = str_replace("<label style=\"text-transform:capitalize;\">", "", $output);
-                $output = str_replace("</label>", "", $output);
-                $output = str_replace("&nbsp;", "", $output);
-                $output = str_replace("<td class=\"sroDtEvent\" valign=\"top\">", "", $output);
-                $output = explode("<tr>", $output);
+            foreach ($out as $key => $value) {
+              if(trim($value) != ""){
+                $html  = str_replace(' style="">','<ul>', $value);
+                $html  = str_replace('<b>', '', str_replace('</b>', '', $html));
+                $array = explode('<li>', $html);
 
+                $action   = str_replace('</ul>','', str_replace('</li>','', explode('-',trim(str_replace('Status:','',$array[1])))[0] ));
+                $date     = str_replace('</ul>','', str_replace('</li>','', trim(str_replace(':','',str_replace('Data','',explode('|',$array[2])[0]))) ));
+                $hour     = str_replace('</ul>','', str_replace('</li>','', trim(str_replace('Hora:','',explode('|',$array[2])[1])) ));
 
-                $novo_array = array();
-
-                foreach ($output as $texto) {
-                    $info   = explode("<td class=\"sroLbEvent\">", $texto);
-                    $dados  = explode("<br />", $info[0]);
-
-                    $dia   = trim($dados[0]);
-                    $hora  = trim(@$dados[1]);
-                    $local = trim(@$dados[2]);
-
-                    $dados = explode("<br />", @$info[1]);
-                    $acao  = trim($dados[0]);
-
-                    $exAction   = explode($acao . "<br />", @$info[1]);
-                    $acrionMsg  = strip_tags(trim(preg_replace('/\s\s+/', ' ', $exAction[0])));
-
-                    if ("" != $dia) {
-                        $exploDate = explode('/', $dia);
-                        $dia1 = $exploDate[2] . '-' . $exploDate[1] . '-' . $exploDate[0];
-                        $dia2 = date('Y-m-d');
-
-                        $diferenca = strtotime($dia2) - strtotime($dia1);
-                        $dias = floor($diferenca / (60 * 60 * 24));
-
-                        $change = utf8_encode("há {$dias} dias");
-
-                        $novo_array[] = array("date" => $dia, "hour" => $hora, "location" => $local, "action" => utf8_encode($acao), "message" => utf8_encode($acrionMsg), "change" => utf8_decode($change));
-                    }
+                if(!isset($array[1])){
+                  $message = $action;
+                }else{
+                  $message  = str_replace('</ul>','', str_replace('</li>','', @explode('-',trim(str_replace('Status:','',$array[1])))[1] ));
                 }
-            } else {
-                $jsonObcject = new stdClass();
-                $jsonObcject->erro = true;
-                $jsonObcject->msg = "Objeto não encontrado";
-                $jsonObcject->obj = $obj[$i];
-                return $jsonObcject;
+
+                $change   = str_replace('</ul>','', str_replace('</li>','', self::change($date) ));
+                $location = str_replace('</ul>','', str_replace('</li>','', trim(str_replace('Origem:','', str_replace('Local:','',$array[3]))) ));
+
+                $array_obj[$y] = array(
+                  'date'     => $date,
+                  'hour'     => $hour,
+                  'location' => $location,
+                  'action'   => $action,
+                  'message'  => $message,
+                  'change'   => $change
+                );
+
+                $y++;
+              }
             }
-            //cria um objeto identificando o código da encomenda e as informações extraídas armazenadas no array $novo_array
-            $arrayCompleto[$obj[$i]] = (object)$novo_array;
+
+            $novo_array[$obj[$i]] = (object)$array_obj;
+
         }
 
-        $jsonObcject = (object)$arrayCompleto;
-        return $jsonObcject;
+        return (object)$novo_array;
+
+    }
+
+
+    public function change($dia){
+      $exploDate = explode('/', $dia);
+      $dia1 = $exploDate[2] . '-' . $exploDate[1] . '-' . $exploDate[0];
+      $dia2 = date('Y-m-d');
+
+      $diferenca = strtotime($dia2) - strtotime($dia1);
+      $dias = floor($diferenca / (60 * 60 * 24));
+
+      if($dias>1){
+        $change = "há {$dias} dias";
+      }else{
+        $change = "há {$dias} dia";
+      }
+      return $change;
     }
 
     /**
      * getSiglas function
-     * 
+     *
      * Retorna a descrição das Siglas utilizadas nos códigos de rastreio. Esta função retorna todas as siglas ou uma específica
      *
      * @param String $sigla

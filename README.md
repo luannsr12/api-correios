@@ -201,10 +201,6 @@ Nenhum
     "AS": {
       "name": "ENCOMENDA PAC – ACAO SOCIAL"
     },
-
-    .
-    .
-    .
   }
 }
 ```

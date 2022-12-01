@@ -107,6 +107,11 @@ class CorreiosService
 
             $output = file_get_contents($this->trackCorreios.'/'.$obj[$i]);
             $out    = explode("class=\"singlepost\"", $output);
+
+            if(!isset($out[1])){
+              return new stdClass();
+            }
+
             $out    = explode("<br>", $out[1]);
             $out    = explode("<ul class=\"linha_status\"", $out[1]);
 

@@ -141,18 +141,18 @@ Endpoint: /correios/calculate/
 Method: GET
 
 1. Para o tipo de encomenda, segue as definições abaixo:
-  - Caixa/Pacote;
-  - Rolo/Prisma;
-  - Envelope;
+    - Caixa/Pacote;
+    - Rolo/Prisma;
+    - Envelope;
 
 2. Observações importantes:
-  - Caso seja Envelope, informe 0 na altura;
-  - Caso seja Envelope, o peso não pode ultrapassar 1kg;
-  - Caso seja Rolo/Prisma, informe o diâmetro da embalagem;
-  - Caso seja Rolo/Prisma, informe 0 na altura e largura;
-  - Caso seja Caixa/Pacote, informe 0 no diâmetro;
-  - Para os serviços de "Mão Própria" e/ou "Aviso de Recebimento" informe "S" - sim ou "N" - não;
-  - O valor Declarado é opcional, sendo que caso não deseje declarar, informe 0;
+    - Caso seja Envelope, informe 0 na altura;
+    - Caso seja Envelope, o peso não pode ultrapassar 1kg;
+    - Caso seja Rolo/Prisma, informe o diâmetro da embalagem;
+    - Caso seja Rolo/Prisma, informe 0 na altura e largura;
+    - Caso seja Caixa/Pacote, informe 0 no diâmetro;
+    - Para os serviços de "Mão Própria" e/ou "Aviso de Recebimento" informe "S" - sim ou "N" - não;
+    - O valor Declarado é opcional, sendo que caso não deseje declarar, informe 0;
 
 Curl:
 ```

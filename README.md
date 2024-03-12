@@ -24,7 +24,7 @@
 
 # Como utilizar a API
 
-Segue abaixo todas as requisições que podem ser feitas nesta API:
+Segue abaixo as instruções de utilização:
 ```
  git clone https://github.com/luannsr12/api-correios/
  cd api-correios

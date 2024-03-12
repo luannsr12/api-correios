@@ -141,9 +141,9 @@ Endpoint: /correios/calculate/
 Method: GET
 
 1. Para o tipo de encomenda, segue as definições abaixo:
-    - Caixa/Pacote;
-    - Rolo/Prisma;
-    - Envelope;
+    - Caixa/Pacote (1);
+    - Rolo/Prisma (2);
+    - Envelope (3);
 
 2. Observações importantes:
     - Caso seja Envelope, informe 0 na altura;

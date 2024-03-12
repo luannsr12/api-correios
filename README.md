@@ -47,6 +47,7 @@ Segue abaixo todas as requisições que podem ser feitas nesta API:
 # Rastrear encomenda
 
 Endpoint: /correios/tracking/
+<br />
 Method: POST
 
 Curl:
@@ -107,6 +108,7 @@ Response:
 # Tipos de serviços
 
 Endpoint: /correios/services/
+<br />
 Method: GET
 
 Curl:
@@ -135,6 +137,7 @@ Response:
 # Calcular Frete
 
 Endpoint: /correios/calculate/
+<br />
 Method: GET
 
 1. Para o tipo de encomenda, segue as definições abaixo:
@@ -220,6 +223,7 @@ Response:
 # Obter a sigla pelo ID
 
 Endpoint: /correios/flag/
+<br />
 Method: GET
 
 Curl:
@@ -254,6 +258,7 @@ Response:
 # Listar todas as siglas
 
 Endpoint: /correios/flags/
+<br />
 Method: GET
 
 Curl:

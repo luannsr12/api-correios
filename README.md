@@ -9,8 +9,8 @@
 
 # Requirements
 
-> Composer
-> PHP >= 8.2
+- Composer
+- PHP >= 8.2
 
 # Packages
 - [luannsr12/sdkcorreios](https://packagist.org/packages/luannsr12/sdkcorreios)

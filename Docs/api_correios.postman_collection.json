@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "9a9175cc-e34e-4cf2-97fe-ff53e3023adf",
+		"name": "api_correios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9922747",
+		"_collection_link": "https://grey-shuttle-5225.postman.co/workspace/teste~1a49c23a-f95a-4a90-98fe-074ac3bb2e22/collection/9922747-9a9175cc-e34e-4cf2-97fe-ff53e3023adf?action=share&source=collection_link&creator=9922747"
+	},
+	"item": [
+		{
+			"name": "Siglas",
+			"item": [
+				{
+					"name": "flags",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Access-token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/correios/flags",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"correios",
+								"flags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "flag",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Access-token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"AR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/correios/flag",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"correios",
+								"flag"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "services",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/correios/services",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"correios",
+						"services"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access-token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"servico\": \"04510\",\n\t\"origem\": \"85930-000\",\n\t\"destinatario\": \"85960-000\",\n\t\"tipo\": 1,\n\t\"comprimento\": 20,\n\t\"altura\": 20,\n\t\"largura\": 20,\n\t\"diametro\": 0,\n\t\"peso\": 0.500,\n\t\"maoPropria\": \"s\",\n\t\"valorDeclarado\": 150,\n\t\"avisoRecebimento\": \"s\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/correios/calculate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"correios",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tracking",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access-token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"objects\": [\"QE460690785BR\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/correios/tracking/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"correios",
+						"tracking",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost"
+		}
+	]
+}

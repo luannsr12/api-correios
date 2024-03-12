@@ -1,33 +1,123 @@
 
 
-# API Correios com PHP
+# API Correios com PHP v2.0
 
 [![](https://img.shields.io/github/contributors/luannsr12/correios-rastreio.svg?style=flat-square)](https://github.com/luannsr12/correios-rastreio/graphs/contributors)
 [![](https://badges.pufler.dev/updated/luannsr12/correios-rastreio)](https://github.com/luannsr12/correios-rastreio)
 [![](https://badges.pufler.dev/visits/luannsr12/correios-rastreio)](https://github.com/luannsr12/correios-rastreio)
 
-## Introdução
 
-Esta API aborda os seguintes serviços:
+# Requirements
 
-* Serviços oferecidos pelos Correios;
-* Cálculo de Frete de um produto;
-* Rastreio de uma encomenda;
-* Retorna os significados das siglas contidas no código de rastreio.
+> Composer
+> PHP >= 8.2
 
-## Como utilizar a API
+# Packages
+- [luannsr12/sdkcorreios](https://packagist.org/packages/luannsr12/sdkcorreios)
+
+# Esta API aborda os seguintes serviços:
+
+1. Serviços oferecidos pelos Correios;
+2. Cálculo de Frete de um produto;
+3. Rastreio de uma encomenda;
+4. Retorna os significados das siglas contidas no código de rastreio.
+
+# Como utilizar a API
 
 Segue abaixo todas as requisições que podem ser feitas nesta API:
+```
+ git clone https://github.com/luannsr12/api-correios/
+ cd api-correios
+ composer install
+```
+> Após o download e instalação, edite o arquivo "config.php" e adicione o Access Token da sua aplicação.
+> Esse Access Token deve ser passado no header das requisições da API.
 
-**URL_BASE: http://localhost/**
+```php
+<?php
 
-### GET /correios/getServices
+ // Usado para comsumir a API
+ define("ACCESS_TOKEN", "SEU_ACCESS_TOKEN");
 
-**Parâmetros**
+```
 
-Nenhum
+# Todos os endpoints
+----
 
-**Retorno**
+# Rastrear encomenda
+
+Endpoint: /correios/tracking/
+Method: POST
+
+Curl:
+```
+curl --location --request GET '{{base_url}}/orreios/tracking' \
+--header 'Access-token: SEU_ACCESS_TOKEN' \
+--header 'Content-Type: application/json' \
+--data '{
+  "objects": ["QQ588651634BR"],
+  "provider": "Muambator"
+}'
+```
+
+Body:
+> provider é opcional. Por padrão o site de busca é o Melhor Rasreio
+> Consule na documentação da SDK para ver os providers: [Sdk Correios](https://github.com/luannsr12/sdkcorreios/)
+
+```json
+{
+  "objects": ["QQ588651634BR"],
+  "provider": "Muambator"
+}
+```
+
+Response:
+
+```json
+{
+    "success": true,
+    "result": [
+        {
+            "code": "QQ588651634BR",
+            "status": "MOVEMENT",
+            "service_provider": "api.melhorrastreio.com.br",
+            "data": [
+                {
+                    "date": "03-09-2024 07:27:10",
+                    "to": "Unidade de Distribuição - MARECHAL CANDIDO RONDON/PR",
+                    "from": "Unidade de Tratamento - CURITIBA/PR",
+                    "location": "Unidade de Tratamento - CURITIBA/PR",
+                    "originalTitle": "Objeto em transferência - por favor aguarde",
+                    "details": "Objeto em transferência - por favor aguarde"
+                },
+                {
+                    "date": "03-06-2024 12:25:05",
+                    "to": "Unidade de Tratamento - CASCAVEL/PR",
+                    "from": "Unidade de Tratamento - SOROCABA/SP",
+                    "location": "Unidade de Tratamento - SOROCABA/SP",
+                    "originalTitle": "Objeto em transferência - por favor aguarde",
+                    "details": "Objeto em transferência - por favor aguarde"
+                }
+            ]
+        }
+    ]
+}
+```
+
+# Tipos de serviços
+
+Endpoint: /correios/calculate/
+Method: GET
+
+Curl:
+
+```
+curl --location '{{base_url}}/correios/services' \
+--header 'Access-token: SEU_ACCESS_TOKEN'
+
+```
+ 
+Response: 
 
 ```json
 {
@@ -42,32 +132,49 @@ Nenhum
 }
 ```
 
-### GET /correios/getFrete
+# Calcular Frete
 
-**Parâmetros**
+Endpoint: /correios/calculate/
+Method: GET
 
-Passados no corpo da requisição especificando o conteudo como JSON
+1. Para o tipo de encomenda, segue as definições abaixo:
+  - Caixa/Pacote;
+  - Rolo/Prisma;
+  - Envelope;
 
-Exemplo de Encomenda para o cálculo do frete
+2. Observações importantes:
+  - Caso seja Envelope, informe 0 na altura;
+  - Caso seja Envelope, o peso não pode ultrapassar 1kg;
+  - Caso seja Rolo/Prisma, informe o diâmetro da embalagem;
+  - Caso seja Rolo/Prisma, informe 0 na altura e largura;
+  - Caso seja Caixa/Pacote, informe 0 no diâmetro;
+  - Para os serviços de "Mão Própria" e/ou "Aviso de Recebimento" informe "S" - sim ou "N" - não;
+  - O valor Declarado é opcional, sendo que caso não deseje declarar, informe 0;
+
+Curl:
 ```
-Para o tipo de encomenda, segue as definições abaixo:
-1 - Caixa/Pacote;
-2 - Rolo/Prisma;
-3 - Envelope;
+curl --location '{{base_url}}/correios/calculate' \
+--header 'Access-token: SEU_ACCESS_TOKEN' \
+--header 'Content-Type: application/json' \
+--data '{
+	"servico": "04510",
+	"origem": "85930-000",
+	"destinatario": "85960-000",
+	"tipo": 1,
+	"comprimento": 20,
+	"altura": 20,
+	"largura": 20,
+	"diametro": 0,
+	"peso": 0.500,
+	"maoPropria": "s",
+	"valorDeclarado": 150,
+	"avisoRecebimento": "s"
+}'
 
-OBSERVAÇÔES IMPORTANTES:
-=> Caso seja Envelope, informe 0 na altura;
-=> Caso seja Envelope, o peso não pode ultrapassar 1kg;
-
-=> Caso seja Rolo/Prisma, informe o diâmetro da embalagem;
-=> Caso seja Rolo/Prisma, informe 0 na altura e largura;
-
-=> Caso seja Caixa/Pacote, informe 0 no diâmetro;
-
-=> Para os serviços de "Mão Própria" e/ou "Aviso de Recebimento" informe "S" - sim ou "N" - não;
-
-=> O valor Declarado é opcional, sendo que caso não deseje declarar, informe 0;
 ```
+
+
+Body:
 
 ```json
 {
@@ -86,7 +193,7 @@ OBSERVAÇÔES IMPORTANTES:
 }
 ```
 
-**Retorno**
+Response:
 
 ```json
 {
@@ -110,117 +217,74 @@ OBSERVAÇÔES IMPORTANTES:
 }
 ```
 
-### GET /correios/tracking/{CODIGO_RASTREIO}
+# Obter a sigla pelo ID
 
-**Parâmetros**
+Endpoint: /correios/flag/
+Method: GET
 
-Nenhum
+Curl:
+```
+curl --location --request GET '{{base_url}}/correios/flag' \
+--header 'Access-token: SEU_ACCESS_TOKEN' \
+--header 'Content-Type: application/json' \
+--data '{
+    "Id": "AR"
+}'
+```
 
-**Retorno**
-
+Body:
 ```json
 {
-  "status": "sucess",
-  "content": {
-    "QE460690785BR": {
-      "0": {
-        "date": "19\/04\/2021",
-        "hour": "16:22",
-        "location": "CAMPOS DO JORDAO\/SP",
-        "action": "Objeto entregue ao destinatário",
-        "message": "Objeto entregue ao destinatário ",
-        "change": "há 59 dias"
-      },
-      "1": {
-        "date": "19\/04\/2021",
-        "hour": "14:41",
-        "location": "CAMPOS DO JORDAO\/SP",
-        "action": "Objeto saiu para entrega ao destinatário",
-        "message": "Objeto saiu para entrega ao destinatário ",
-        "change": "há 59 dias"
-      },
-      "2": {
-        "date": "16\/04\/2021",
-        "hour": "15:16",
-        "location": "SAO JOSE DOS CAMPOS \/ SP",
-        "action": "Objeto em trânsito - por favor aguarde",
-        "message": "Objeto em trânsito - por favor aguarde  de Unidade de Tratamento em SAO JOSE DOS CAMPOS \/ SP para Unidade de Distribuição em CAMPOS DO JORDAO \/ SP",
-        "change": "há 62 dias"
-      },
-      "3": {
-        "date": "14\/04\/2021",
-        "hour": "00:42",
-        "location": "CAMPO GRANDE \/ MS",
-        "action": "Objeto em trânsito - por favor aguarde",
-        "message": "Objeto em trânsito - por favor aguarde  de Unidade de Tratamento em CAMPO GRANDE \/ MS para Unidade de Tratamento em SAO JOSE DOS CAMPOS \/ SP",
-        "change": "há 64 dias"
-      },
-      "4": {
-        "date": "13\/04\/2021",
-        "hour": "16:48",
-        "location": "TRES LAGOAS \/ MS",
-        "action": "Objeto em trânsito - por favor aguarde",
-        "message": "Objeto em trânsito - por favor aguarde  de Agência dos Correios em TRES LAGOAS \/ MS para Unidade de Tratamento em CAMPO GRANDE \/ MS",
-        "change": "há 65 dias"
-      },
-      "5": {
-        "date": "13\/04\/2021",
-        "hour": "16:42",
-        "location": "TRES LAGOAS\/MS",
-        "action": "Objeto postado",
-        "message": "Objeto postado ",
-        "change": "há 65 dias"
-      }
-    }
-  }
+    "Id": "AR"
 }
 ```
 
-### GET /correios/getSiglas/{SIGLA}
-
-O parâmetro SIGLA é opcional
-
-#### Caso não passe o parametro SIGLA
-
-**Parâmetros**
-
-Nenhum
-
-**Retorno**
+Response:
 
 ```json
 {
-  "status": "sucess",
-  "content": {
-    "AL": {
-      "name": "AGENTES DE LEITURA"
-    },
-    "AR": {
-      "name": "AVISO DE RECEBIMENTO"
-    },
-    "AS": {
-      "name": "ENCOMENDA PAC – ACAO SOCIAL"
-    },
-  }
+    "success": true,
+    "result": {
+        "Id": "AR",
+        "Name": "AVISO DE RECEBIMENTO"
+    }
 }
 ```
 
-#### Caso passe o parametro SIGLA
+# Listar todas as siglas
 
-**Parâmetros**
+Endpoint: /correios/flags/
+Method: GET
 
-Nenhum
+Curl:
+```
+curl --location 'http://localhost/workspace/jobs/api-correios//correios/flags' \
+--header 'Access-token: SEU_ACCESS_TOKEN'
 
-**Retorno**
+```
+
+Response:
 
 ```json
 {
-  "status": "sucess",
-  "content": {
-    "AL": {
-      "name": "AGENTES DE LEITURA"
+    "success": true,
+    "result": {
+        "AL": {
+            "name": "AGENTES DE LEITURA"
+        },
+        "AR": {
+            "name": "AVISO DE RECEBIMENTO"
+        },
+        "AS": {
+            "name": "ENCOMENDA PAC – ACAO SOCIAL"
+        },
+        "BE": {
+            "name": "REMESSA ECONÔMICA S/ AR DIGITAL"
+        },
+        "BF": {
+            "name": "REMESSA EXPRESSA S/ AR DIGITAL"
+        }
     }
-  }
 }
 ```
 

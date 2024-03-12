@@ -1,0 +1,58 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "421dbc7408e49336ab7e2dfe65a481d2",
+    "packages": [
+        {
+            "name": "luannsr12/sdkcorreios",
+            "version": "v1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/luannsr12/sdkcorreios.git",
+                "reference": "fa069ee10458df66a922082fde845bf4fcd7bd9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/luannsr12/sdkcorreios/zipball/fa069ee10458df66a922082fde845bf4fcd7bd9c",
+                "reference": "fa069ee10458df66a922082fde845bf4fcd7bd9c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sdkcorreios\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luan Alves"
+                }
+            ],
+            "description": "Sdk correios",
+            "support": {
+                "issues": "https://github.com/luannsr12/sdkcorreios/issues",
+                "source": "https://github.com/luannsr12/sdkcorreios/tree/v1.0.8"
+            },
+            "time": "2024-03-12T21:11:36+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

@@ -106,7 +106,7 @@ Response:
 
 # Tipos de serviços
 
-Endpoint: /correios/calculate/
+Endpoint: /correios/services/
 Method: GET
 
 Curl:

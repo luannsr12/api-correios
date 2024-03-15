@@ -124,7 +124,7 @@ Response:
 ```json
 {
   "status": "sucess",
-  "content": {
+  "result": {
     "PAC": "04510",
     "SEDEX": "04014",
     "SEDEX 12": "04782",

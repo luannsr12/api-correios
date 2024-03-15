@@ -62,7 +62,7 @@ curl --location --request GET '{{base_url}}/orreios/tracking' \
 ```
 
 Body:
-> provider é opcional. Por padrão o site de busca é o Melhor Rasreio
+> provider é opcional. Por padrão o site de busca é o Melhor Rastreio
 > Consule na documentação da SDK para ver os providers: [Sdk Correios](https://github.com/luannsr12/sdkcorreios/)
 
 ```json
@@ -201,7 +201,7 @@ Response:
 ```json
 {
   "status": "sucess",
-  "content": {
+  "result": {
     "cServico": {
       "Codigo": "04510",
       "Valor": "45,83",
@@ -263,7 +263,7 @@ Method: GET
 
 Curl:
 ```
-curl --location 'http://localhost/workspace/jobs/api-correios//correios/flags' \
+curl --location '{{base_url}}/correios/flags' \
 --header 'Access-token: SEU_ACCESS_TOKEN'
 
 ```

@@ -63,7 +63,7 @@ curl --location --request GET '{{base_url}}/correios/tracking' \
 
 Body:
 > provider é opcional. Por padrão o site de busca é o Melhor Rastreio
-> Consule na documentação da SDK para ver os providers: [Sdk Correios](https://github.com/luannsr12/sdkcorreios/)
+> Consulte na documentação da SDK para ver os providers: [Sdk Correios](https://github.com/luannsr12/sdkcorreios/)
 
 ```json
 {

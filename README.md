@@ -52,7 +52,7 @@ Method: POST
 
 Curl:
 ```
-curl --location --request GET '{{base_url}}/orreios/tracking' \
+curl --location --request GET '{{base_url}}/correios/tracking' \
 --header 'Access-token: SEU_ACCESS_TOKEN' \
 --header 'Content-Type: application/json' \
 --data '{

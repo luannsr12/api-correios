@@ -30,7 +30,7 @@ Segue abaixo as instruções de utilização:
  cd api-correios
  composer install
 ```
-> Após o download e instalação, edite o arquivo "config.php" e adicione o Access Token da sua aplicação.
+> Após o download e instalação, edite o arquivo "config.php" e crie o Access Token da sua aplicação.
 > Esse Access Token deve ser passado no header das requisições da API.
 
 ```php
@@ -57,18 +57,28 @@ curl --location --request GET '{{base_url}}/correios/tracking' \
 --header 'Content-Type: application/json' \
 --data '{
   "objects": ["QQ588651634BR"],
-  "provider": "Muambator"
+  "provider": "0001"
 }'
 ```
 
 Body:
-> provider é opcional. Por padrão o site de busca é o Melhor Rastreio
+> provider é opcional. Por padrão o site de busca é o Melhor Rastreio (0001)
 > Consulte na documentação da SDK para ver os providers: [Sdk Correios](https://github.com/luannsr12/sdkcorreios/)
+
+| Status  | Site                                                                   | ID    |
+| :---:   | ---------------------------------------------------------------------- | ------|
+|   ✅   | [melhorrastreio.com.br](https://melhorrastreio.com.br/) (Recomendado)   | 0001 |
+|   ✅   | [encomenda.io](https://encomenda.io/OBJETO)                             | 0002 |
+|   ✅   | [rastreadordepacotes.com.br](https://www.rastreadordepacotes.com.br/)   | 0003 |
+|   ✅   | [rastreamentocorreio.com](https://rastreamentocorreio.com/)             | 0004 |
+|   ✅   | [muambator.com.br](https://www.muambator.com.br/)                       | 0005 |
+|   ✅   | [rastreiocorreios.com.br](https://rastreiocorreios.com.br/)             | 0006 |
+|   ✅   | [linkcorreios.com.br](https://www.linkcorreios.com.br/)                 | 0007 |
 
 ```json
 {
   "objects": ["QQ588651634BR"],
-  "provider": "Muambator"
+  "provider": "0001"
 }
 ```
 
